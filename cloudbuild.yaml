@@ -1,8 +1,12 @@
 steps:
   # Step 0: Compile the Go application
-  - name: 'gcr.io/cloud-builders/go'
-    args: ['build', '-o', 'main', 'main.go']
+  - name: 'golang:1.21'
+    entrypoint: 'go'
+    args: ['build', '-o', 'main', '.']
     id: 'Compile application'
+    env:
+      - 'CGO_ENABLED=0'
+      - 'GOOS=linux'
 
   # Step 1: Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
