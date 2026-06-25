@@ -22,3 +22,6 @@ steps:
 
 images:
   - 'europe-west1-docker.pkg.dev/qwiklabs-gcp-01-86a6bfd1738c/my-repository/hello-cloudbuild:$SHORT_SHA'
+
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
